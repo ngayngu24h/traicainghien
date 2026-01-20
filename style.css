@@ -12,36 +12,104 @@
   box-sizing: border-box;
 }
 
+/* ===== BODY – NỀN KOI ===== */
 body {
   margin: 0;
   min-height: 100vh;
-  background: url("assets/bg.jpg") no-repeat center center fixed;
+  background: url("assets/bg-koi.jpg") no-repeat center center fixed;
   background-size: cover;
   font-family: "Times New Roman", serif;
-  color: #eee;
+  color: #eaeaea;
 }
 
+/* ===== LỚP PHỦ TỐI ===== */
 .overlay {
-  background: rgba(0,0,0,0.6);
   min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.85)
+    );
 }
 
+/* ===== MENU ☰ ===== */
+#menu-toggle {
+  display: none;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 22px;
+  left: 26px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  color: #f5f5f5;
+  text-shadow: 0 0 8px rgba(255,255,255,0.25);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -270px;
+  width: 270px;
+  height: 100%;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(6px);
+  padding: 90px 28px;
+  transition: 0.35s ease;
+  z-index: 1000;
+}
+
+#menu-toggle:checked ~ .sidebar {
+  left: 0;
+}
+
+.sidebar-title {
+  font-family: "Auther";
+  font-size: 30px;
+  letter-spacing: 2px;
+  margin-bottom: 45px;
+  color: #f0f0f0;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: #cfcfcf;
+  font-size: 18px;
+  margin-bottom: 22px;
+  transition: 0.25s;
+}
+
+.sidebar a:hover {
+  color: #ffffff;
+  padding-left: 10px;
+}
+
+/* ===== TRANG CHỦ ===== */
 .home {
-  padding: 90px 70px;
+  padding: 100px 80px 90px 140px;
 }
 
 .title-main {
   font-family: "Auther";
-  font-size: 68px;
-  letter-spacing: 2px;
-  margin: 0 0 10px 0;
+  font-size: 72px;
+  letter-spacing: 4px;
+  margin: 0 0 12px 0;
+  color: #f7f7f7;
+  text-shadow:
+    0 0 18px rgba(255,255,255,0.18),
+    0 0 40px rgba(255,255,255,0.05);
 }
 
 .title-sub {
   font-family: "Mongek";
   font-size: 26px;
-  margin-bottom: 50px;
-  opacity: 0.9;
+  margin-bottom: 55px;
+  opacity: 0.85;
 }
 
 .content {
@@ -50,6 +118,7 @@ body {
 
 .text {
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.9;
   margin-bottom: 22px;
+  color: #e0e0e0;
 }
