@@ -26,6 +26,26 @@ body {
   font-family: "Times New Roman", serif;
   color: #eaeaea;
 }
+.copyright {
+  margin-top: 80px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #8b4a67;
+  opacity: 0.85;
+}
+
+.copyright a {
+  color: #c7437a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.copyright a:hover {
+  color: #ff5fa2;
+  text-shadow: 0 0 6px rgba(255,95,162,0.6);
+}
 
 /* ===== MENU TRÊN ===== */
 .top-nav {
