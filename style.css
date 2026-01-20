@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Auther";
+  src: url("fonts/Auther-Typeface.otf");
+}
+
+@font-face {
+  font-family: "Mongek";
+  src: url("fonts/iCiel-BC-Lodestone-Regular.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("assets/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Times New Roman", serif;
+  color: #eee;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  min-height: 100vh;
+}
+
+.home {
+  padding: 90px 70px;
+}
+
+.title-main {
+  font-family: "Auther";
+  font-size: 68px;
+  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+}
+
+.title-sub {
+  font-family: "Mongek";
+  font-size: 26px;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+
+.content {
+  max-width: 720px;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
