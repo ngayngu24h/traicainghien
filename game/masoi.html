@@ -51,11 +51,9 @@
     </style>
 </head>
 <body>
-    <!-- Nhạc tự động phát khi trang load (giả sử file nhạc là 'nhac.mp3' trong thư mục assets) -->
-    <audio autoplay loop>
-        <source src="assets/nhac.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
+<audio autoplay loop>
+    <source src="assets/nhac.mp3" type="audio/mpeg">
+</audio>
 
     <div class="masoi">
         <h2 class="section-title">Phe Dân</h2>
@@ -142,17 +140,41 @@
 
         <h2 class="section-title">Phe Thứ 3</h2>
 
-        <p class="text"><b>Vampire</b>: Cắn người thành Vampire con. Chết là cả bầy chết. </p>
+        <p class="text"><b>Vampire</b>: Mỗi đêm, Vampire cắn một người và biến người đó thành Vampire con (không thể biến sói thành Vampire).
+Khi Vampire chết, tất cả Vampire con cũng chết theo.
+Sau khi bị hóa thành Vampire con, các chức năng ban đầu vẫn được sử dụng bình thường, trừ những chức năng sau: Con Hoang, Kẻ Thổi Sáo. </p><span class="tag-unk">SOI UNK</span></p>
 
-        <p class="text"><b>Tà Đạo</b>: Chọn 2 người, họ chết → bạn sống cuối game là thắng. </p>
+        <p class="text"><b>Tà Đạo</b>: Chọn 2 người, họ chết → bạn sống cuối game là thắng. </p><span class="tag-unk">SOI UNK</span></p>
 
-        <p class="text"><b>Sói Trắng</b>: Cứ 2 đêm giết 1 Sói thường. Mục tiêu: sống 1 mình. </p>
+        <p class="text"><b>Sói Trắng</b>: Cứ 2 đêm giết 1 Sói thường/dân. Mục tiêu: sống 1 mình. </p><span class="tag-unk">SOI ÁC</span></p>
 
-        <p class="text"><b>Kẻ Thổi Sáo</b>: Mê hoặc dần tất cả người chơi để thắng. </p>
+        <p class="text"><b>Kẻ Thổi Sáo</b>: Mỗi đêm sẽ mê hoặc 2 người. Những người bị mê hoặc sau đó sẽ được gọi hết dậy để biết mặt lẫn nhau. Kẻ Thổi Sáo thắng khi tất cả những người chơi còn sống đều đã bị mê hoặc. Không bị sói cắn chết. </p><span class="tag-unk">SOI UNK</span></p>
 
-        <p class="text"><b>Tin Tặc</b>: Xâm nhập, cấm nói/vote, chết cuối ngày. Thắng khi còn mình. </p>
+        <p class="text"><b>Tin Tặc</b>: Mỗi đêm, bạn có thể chọn một người chơi để "xâm nhập". Người chơi đó sẽ không thể sử dụ khả năng vai trò của họ, cũng không thể nói hoặc bỏ phiếu vào ngày hôm sau và sẽ chết vào cuối ngày. Vai trò của họ sẽ không được tiết lộ khi chết. Người chơi đó không thể hồi sinh bởi Thầy Đồng. Bạn không thể bị giết bởi ma sói. Bạn thắng nếu bạn là người chơi cuối cùng. Không bị sói cắn chết. </p><span class="tag-unk">SOI UNK</span></p>
 
-        <p class="text"><b>Thiên Thần</b>: Chết ngày/đêm đầu → thắng solo. </p>
+        <p class="text"><b>THỢ SĂN NGƯỜI</b>: cố gắng treo cổ một mục tiêu được chỉ định, nếu người đó chết bằng cách khác thì trở lại làm dân làng.
+ </p><span class="tag-unk">SOI UNK</span></p>
+        
+
+ <p class="text"><b> HẬU/VUA</b>:Cho phép hỏi người chơi một câu hỏi bất kỳ. Có 2 đáp án A và B, đúng sống, sai chết. </p><span class="tag-unk">SOI UNK</span></p><span class="tag-unk">SOI UNK</span></p>
+
+        <p class="text"><b> NGỐ</b>:lừa dân treo - dân treo thắng. </p><span class="tag-unk">SOI UNK</span></p>
+        
+        <p class="text"><b>SÁT THỦ</b>: mỗi đêm sẽ được quản gọi dậy để chọn giết một người. Không bị sói cắn chết. </p> <span class="tag-unk">SOI UNK</span></p>
+        
+        <p class="text"><b>KẺ PHÓNG HOẢ</b>: Mỗi đêm, bạn có thể chọn 2 người để tẩm xăng họ hoặc thiêu đốt những người đã bị tẩm xăng trước đó. Không bị sói cắn chết</p> <span class="tag-unk">SOI UNK</span></p>
+        
+        <p class="text"><b>Thiên Thần</b>: Nếu bạn chết trong đêm hoặc ngày đầu tiên, bạn sẽ giành chiến thắng một mình. Nếu không, bạn là 1 người Dân bình thường. </p> <span class="tag-unk">SOI UNK</span></p>
     </div>
+
+    <!-- Script để phát nhạc sau khi người dùng click vào trang -->
+    <script>
+        document.addEventListener('click', function() {
+            const audio = document.querySelector('audio');
+            if (audio && audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
 </body>
 </html>
