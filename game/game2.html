@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King</title>
-    <style>
-        body {
-            background-color: #97FFFF; /* Hồng pastel */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        .king {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King</title>
 
-        }
-        .text {
-            margin: 10px 0;
-        }
-        .carousel-wrapper {
-    width: 90%;
+<style>
+body {
+    background-color: #97FFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* khung chữ */
+.king {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ===== CAROUSEL ===== */
+.carousel-wrapper {
+    width: 95%;
     margin: 40px auto;
     overflow: hidden;
     position: relative;
@@ -45,19 +45,20 @@
     width: 100%;
     height: 420px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
+/* text dưới ảnh */
 .card h3 {
     position: absolute;
     bottom: 15px;
     left: 15px;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     text-shadow: 0 0 10px black;
 }
 
-/* tag góc */
+/* tag HOT */
 .tag {
     position: absolute;
     top: 10px;
@@ -65,7 +66,8 @@
     padding: 4px 8px;
     font-size: 12px;
     color: white;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-weight: bold;
 }
 .healing { background: red; }
 .comedy { background: orange; }
@@ -83,90 +85,94 @@
     border-radius: 50%;
     margin: 0 4px;
 }
-.dot
-
-    </style>
+.dots span.active {
+    background: hotpink;
+}
+</style>
 </head>
+
 <body>
+
 <audio autoplay loop>
     <source src="assets/nhac2.mp3" type="audio/mpeg">
 </audio>
 
-    <div class="king">
-        
-        <p class="text">Khi bắt đầu, quản trò phát số ngẫu nhiên cho tất cả người chơi. Người chơi chỉ biết số của mình, không được tiết lộ cho người khác để giữ tính ẩn danh.<br><br>Sau khi phát số xong, quản trò tiếp tục random một con số bất kỳ trong các số đã phát. Người sở hữu con số đó trở thành King của vòng chơi. King có quyền ra lệnh, nhưng không được biết danh tính ai ứng với số nào, chỉ được sử dụng số để gọi.
-</p>
-    </div>
+<div class="king">
+    <p>
+        Khi bắt đầu, quản trò phát số ngẫu nhiên cho tất cả người chơi.
+        Người chơi chỉ biết số của mình, không được tiết lộ cho người khác.<br><br>
+        Sau khi phát số xong, quản trò random một số bất kỳ.
+        Người sở hữu số đó trở thành King của vòng chơi.
+    </p>
+</div>
 
-    <!-- Script để phát nhạc sau khi người dùng click vào trang -->
-    <script>
-        document.addEventListener('click', function() {
-            const audio = document.querySelector('audio');
-            if (audio && audio.paused) {
-                audio.play();
-            }
-        });
-    </script>
-    
-  <script>
-const track = document.querySelector(".carousel-track");
-const cards = document.querySelectorAll(".card");
-const dotsBox = document.querySelector(".dots");
-
-let index = 0;
-const visibleCards = 3;
-const cardWidth = cards[0].offsetWidth + 20;
-const maxIndex = cards.length - visibleCards;
-
-/* tạo dots */
-for (let i = 0; i <= maxIndex; i++) {
-    let dot = document.createElement("span");
-    if (i === 0) dot.classList.add("active");
-    dotsBox.appendChild(dot);
-}
-
-const dots = dotsBox.querySelectorAll("span");
-
-function updateCarousel() {
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-    dots.forEach(d => d.classList.remove("active"));
-    dots[index].classList.add("active");
-}
-
-setInterval(() => {
-    index++;
-    if (index > maxIndex) index = 0;
-    updateCarousel();
-}, 3500);
-</script>
-  
-    <div class="carousel-wrapper">
+<!-- ===== CAROUSEL ===== -->
+<div class="carousel-wrapper">
     <div class="carousel-track">
+
         <div class="card">
-        <img src="assets/1.jpg" 
+            <img src="assets/1.jpg">
             <span class="tag healing">HOT</span>
             <h3>CRE: NGOẠN THỪA</h3>
         </div>
 
         <div class="card">
-        <img src="assets/2.jpg" 
+            <img src="assets/2.jpg">
             <span class="tag comedy">HOT</span>
             <h3>CRE: NGOẠN THỪA</h3>
         </div>
 
         <div class="card">
-        <img src="assets/3.jpg"  
+            <img src="assets/3.jpg">
             <h3>CRE: NGOẠN THỪA</h3>
         </div>
 
         <div class="card">
-        <img src="assets/4.jpg" 
+            <img src="assets/4.jpg">
             <h3>CRE: NGOẠN THỪA</h3>
         </div>
+
     </div>
 
     <div class="dots"></div>
 </div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const track = document.querySelector(".carousel-track");
+    const cards = document.querySelectorAll(".card");
+    const dotsBox = document.querySelector(".dots");
+
+    let index = 0;
+    const visibleCards = 3;
+    const cardWidth = cards[0].offsetWidth + 20;
+    const maxIndex = cards.length - visibleCards;
+
+    /* tạo dots */
+    for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+        dotsBox.appendChild(dot);
+    }
+
+    const dots = dotsBox.querySelectorAll("span");
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        dots.forEach(d => d.classList.remove("active"));
+        dots[index].classList.add("active");
+    }
+
+    setInterval(() => {
+        index++;
+        if (index > maxIndex) index = 0;
+        updateCarousel();
+    }, 3500);
+
+});
+</script>
 
 </body>
 </html>
