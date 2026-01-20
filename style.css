@@ -16,20 +16,24 @@ img {
 * {
   box-sizing: border-box;
 }
-
-/* ===== LIÊN KẾT CHUNG (để tránh màu xanh dương mặc định) ===== */
+/* Cho tất cả liên kết */
 a {
-  color: #FFFFFF;          /* Trắng, dễ nhìn trên nền tối */
-  text-decoration: none;  /* Bỏ gạch chân */
-  font-weight: 500;
-  transition: all 0.25s ease;  /* Hiệu ứng mượt mà */
+  color: white !important; /* !important để override nếu cần */
+  text-decoration: none; /* Tùy chọn: bỏ gạch dưới */
 }
 
-a:hover {
-  color: #ffd1e8;          /* Hồng sáng khi hover */
-  text-shadow: 0 0 6px rgba(255, 200, 220, 0.6);  /* Ánh sáng nhẹ */
+/* Nếu muốn cụ thể cho header */
+.top-nav a {
+  color: white;
 }
 
+/* Cho liên kết trò chơi (bao gồm text bên trong) */
+.game-row {
+  color: white; /* Áp dụng cho toàn bộ liên kết */
+}
+.game-row h3, .game-row p {
+  color: white; /* Đảm bảo text trong .game-info cũng trắng */
+} 
 /* ===== BODY ===== */
 body {
   margin: 0;
