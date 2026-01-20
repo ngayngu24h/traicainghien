@@ -1,3 +1,8 @@
+img {
+  max-width: 100%;
+  display: block;
+}
+
 @font-face {
   font-family: "Auther";
   src: url("fonts/DFVN Soyuz Grotesk 2.0.ttf");
