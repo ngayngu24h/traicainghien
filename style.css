@@ -17,6 +17,19 @@ img {
   box-sizing: border-box;
 }
 
+/* ===== LIÊN KẾT CHUNG (để tránh màu xanh dương mặc định) ===== */
+a {
+  color: #FFFFFF;          /* Trắng, dễ nhìn trên nền tối */
+  text-decoration: none;  /* Bỏ gạch chân */
+  font-weight: 500;
+  transition: all 0.25s ease;  /* Hiệu ứng mượt mà */
+}
+
+a:hover {
+  color: #ffd1e8;          /* Hồng sáng khi hover */
+  text-shadow: 0 0 6px rgba(255, 200, 220, 0.6);  /* Ánh sáng nhẹ */
+}
+
 /* ===== BODY ===== */
 body {
   margin: 0;
@@ -26,6 +39,7 @@ body {
   font-family: "Times New Roman", serif;
   color: #eaeaea;
 }
+
 .copyright {
   width: 100%;
   margin: 80px auto 0;
@@ -40,15 +54,16 @@ body {
   color: #00FF00;
   opacity: 0.85;
 }
+
 /* ===== LINK TRONG FOOTER ===== */
 .copyright a {
-  color: #FFFFFF;          /* trắng */
-  text-decoration: none;  /* bỏ gạch chân */
+  color: #FFFFFF;          /* Trắng */
+  text-decoration: none;  /* Bỏ gạch chân */
   font-weight: 500;
 }
 
 .copyright a:hover {
-  color: #ffd1e8;          /* hồng sáng khi hover */
+  color: #ffd1e8;          /* Hồng sáng khi hover */
   text-shadow: 0 0 6px rgba(255, 200, 220, 0.6);
 }
 
@@ -125,17 +140,18 @@ body {
   margin-bottom: 22px;
   color: #e0e0e0;
 }
+
 /* ===== DANH SÁCH GAME ===== */
 .game-long-list {
   max-width: 900px;
   margin-top: 50px;
 }
+
 .game-row {
   display: flex;
   align-items: center;
   gap: 24px;
 }
-
 
 .game-row img {
   width: 110px;
