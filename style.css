@@ -182,3 +182,61 @@ body {
   background: rgba(255,255,255,0.05);
   padding-left: 36px;
 }
+@media (max-width: 768px) {
+
+  body {
+    background-attachment: scroll;
+  }
+
+  .top-nav {
+    position: static;
+    text-align: center;
+    margin: 16px 0 24px;
+  }
+
+  .top-nav a {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+
+  .home {
+    padding: 90px 18px 60px;
+  }
+
+  .title-main {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  .title-sub {
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+
+  .text {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .game-row {
+    gap: 14px;
+  }
+
+  .game-row img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .game-info h3 {
+    font-size: 18px;
+  }
+
+  .game-info p {
+    font-size: 14px;
+  }
+
+  .copyright {
+    font-size: 12px;
+    margin-top: 50px;
+  }
+}
