@@ -6,6 +6,7 @@
 <title>Trật ý nhau</title>
 
 <style>
+/* ===== RESET ===== */
 * { box-sizing: border-box; }
 
 body {
@@ -13,7 +14,17 @@ body {
   font-family: Arial, sans-serif;
   color: #fff;
   overflow-x: hidden;
-  background: linear-gradient(270deg,#ff4d4d,#ffb84d,#ffff66,#66ff66,#66b3ff,#8a66ff,#d966ff);
+
+  background: linear-gradient(
+    270deg,
+    #ff4d4d,
+    #ffb84d,
+    #ffff66,
+    #66ff66,
+    #66b3ff,
+    #8a66ff,
+    #d966ff
+  );
   background-size: 1200% 1200%;
   animation: rainbowBG 25s ease infinite;
 }
@@ -29,22 +40,26 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
+  overflow: hidden;
   z-index: 5;
 }
+
 .falling-text {
   position: absolute;
   top: -40px;
   white-space: nowrap;
   opacity: 0;
   animation: fall linear forwards;
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
+
 @keyframes fall {
   0% { transform: translateY(0); opacity: 0; }
   15% { opacity: 1; }
   100% { transform: translateY(110vh); opacity: 0; }
 }
 
-/* ===== MARQUEE ===== */
+/* ===== CHỮ CHẠY ===== */
 .marquee {
   width: 100%;
   overflow: hidden;
@@ -52,137 +67,154 @@ body {
   border-top: 1px solid rgba(255,255,255,0.25);
   border-bottom: 1px solid rgba(255,255,255,0.25);
 }
+
 .marquee-track {
   display: flex;
   width: max-content;
   animation: marquee 16s linear infinite;
 }
+
 .marquee span {
   padding: 8px 26px;
   font-size: 15px;
+  font-weight: 600;
   white-space: nowrap;
 }
+
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-33.333%); }
 }
-
-/* ===== CAROUSEL LƯỚT ===== */
-.carousel {
-  width: 100%;
-  height: 360px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  display: flex;
-  gap: 16px;
-  padding: 20px;
-  scrollbar-width: none;
-}
-.carousel::-webkit-scrollbar { display: none; }
 
 .carousel-item {
-  flex: 0 0 auto;
-  width: 260px;
-  height: 100%;
-  scroll-snap-align: center;
+  flex: 0 0 260px;
+  background: rgba(0,0,0,0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.6);
 }
 
 .carousel-item img {
-  height: 100%;
-  width: auto;
+  height: 100%;        /* ƯU TIÊN CHIỀU CAO */
+  width: auto;         /* KHÔNG ÉP NGANG */
   max-width: 100%;
   object-fit: contain;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .carousel { height: 260px; }
-  .carousel-item { width: 180px; }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .carousel {
+    height: 260px;
+  }
+  .carousel-item {
+    flex: 0 0 180px;
+  }
+}
+
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 30px 10px;
   font-size: 14px;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🌧️ chữ rơi -->
 <div class="rain-container"></div>
 
+<!-- 🔝 chữ chạy trên -->
 <div class="marquee">
   <div class="marquee-track">
+    <span>Tạ Thời Dực, lấy không xin bố dí buồi vào chúng mày.</span>
     <span>Tạ Thời Dực, lấy không xin bố dí buồi vào chúng mày.</span>
     <span>Tạ Thời Dực, lấy không xin bố dí buồi vào chúng mày.</span>
   </div>
 </div>
 
-<div class="carousel" id="carousel">
-  <div class="carousel-item"><img src="../assets/1.jpg"></div>
-  <div class="carousel-item"><img src="../assets/2.jpg"></div>
-  <div class="carousel-item"><img src="../assets/3.jpg"></div>
-  <div class="carousel-item"><img src="../assets/4.jpg"></div>
-  <div class="carousel-item"><img src="../assets/5.jpg"></div>
-  <div class="carousel-item"><img src="../assets/6.jpg"></div>
-  <div class="carousel-item"><img src="../assets/7.jpg"></div>
+<!-- 🎞️ carousel -->
+<div class="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item"><img src="../assets/1.jpg"></div>
+    <div class="carousel-item"><img src="../assets/2.jpg"></div>
+    <div class="carousel-item"><img src="../assets/3.jpg"></div>
+    <div class="carousel-item"><img src="../assets/4.jpg"></div>
+    <div class="carousel-item"><img src="../assets/5.jpg"></div>
+    <div class="carousel-item"><img src="../assets/6.jpg"></div>
+    <div class="carousel-item"><img src="../assets/7.jpg"></div>
+    <div class="carousel-item"><img src="../assets/8.jpg"></div>
+    <div class="carousel-item"><img src="../assets/9.jpg"></div>
+    <div class="carousel-item"><img src="../assets/10.jpg"></div>
+
+    <!-- nhân đôi để chạy mượt -->
+    <div class="carousel-item"><img src="../assets/1.jpg"></div>
+    <div class="carousel-item"><img src="../assets/2.jpg"></div>
+    <div class="carousel-item"><img src="../assets/3.jpg"></div>
+    <div class="carousel-item"><img src="../assets/4.jpg"></div>
+    <div class="carousel-item"><img src="../assets/5.jpg"></div>
+  </div>
 </div>
 
+<!-- 🔽 chữ chạy dưới -->
 <div class="marquee">
   <div class="marquee-track">
+    <span>Tạ Thời Dực, lấy không xin bố dí buồi vào chúng mày.</span>
     <span>Tạ Thời Dực, lấy không xin bố dí buồi vào chúng mày.</span>
     <span>Tạ Thời Dực, lấy không xin bố dí buồi vào chúng mày.</span>
   </div>
 </div>
 
 <footer>
-  © 2024 · Do Tạ Thời Dực tạo ra.
+  © 2024 · Do <a href="https://www.facebook.com/profile.php?id=61586939185002" target="_blank">Tạ Thời Dực</a> tạo ra.
 </footer>
 
 <script>
-/* ===== AUTO LƯỚT CAROUSEL ===== */
-const carousel = document.getElementById("carousel");
-let autoScroll;
-
-function startAutoScroll() {
-  autoScroll = setInterval(() => {
-    carousel.scrollBy({ left: 1, behavior: "smooth" });
-    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 2) {
-      carousel.scrollLeft = 0;
-    }
-  }, 20);
-}
-
-carousel.addEventListener("mouseenter", () => clearInterval(autoScroll));
-carousel.addEventListener("touchstart", () => clearInterval(autoScroll));
-carousel.addEventListener("mouseleave", startAutoScroll);
-
-startAutoScroll();
-
-/* ===== CHỮ RƠI ===== */
 const rain = document.querySelector(".rain-container");
-const texts = ["TRẠI CAI NGHIỆN","Dyr","Tạ Thời Dực","08.06.2024"];
+
+const texts = [
+  "TRẠI CAI NGHIỆN",
+  "Dyr",
+  "Tạ Thời Dực",
+  "08.06.2024"
+];
+
 const emojis = ["👽","💊","🚬","🍻","💩"];
 
 function spawnRain() {
-  for (let i = 0; i < 5; i++) {
+  const count = window.innerWidth < 768 ? 4 : 6;
+
+ for (let i = 0; i < count; i++) {
+
     const el = document.createElement("div");
     el.className = "falling-text";
-    el.textContent = Math.random()<0.3 ? emojis[Math.floor(Math.random()*emojis.length)] : texts[Math.floor(Math.random()*texts.length)];
-    el.style.left = Math.random()*100+"%";
-    el.style.fontSize = (Math.random()*8+14)+"px";
-    el.style.animationDuration = (Math.random()*4+8)+"s";
+
+    el.textContent =
+      Math.random() < 0.25
+        ? emojis[Math.floor(Math.random() * emojis.length)]
+        : texts[Math.floor(Math.random() * texts.length)];
+
+    el.style.left = Math.random() * 100 + "%";
+    el.style.fontSize = (Math.random() * 8 + 14) + "px";
+    el.style.animationDuration = (Math.random() * 4 + 8) + "s";
+
     rain.appendChild(el);
-    setTimeout(()=>el.remove(),13000);
+    setTimeout(() => el.remove(), 13000);
   }
 }
+
 spawnRain();
-setInterval(spawnRain,7000);
+setInterval(spawnRain, 7000);
 </script>
 
 </body>
