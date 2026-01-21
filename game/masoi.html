@@ -51,9 +51,11 @@
     </style>
 </head>
 <body>
-<audio autoplay loop>
-    <source src="assets/nhac.mp3" type="audio/mpeg">
-</audio>
+    <!-- Audio tự phát khi load trang -->
+    <audio id="background-music" autoplay loop>
+        <source src="assets/nhac.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ audio.
+    </audio>
 
     <div class="masoi">
         <h2 class="section-title">Phe Dân</h2>
@@ -167,13 +169,15 @@ Sau khi bị hóa thành Vampire con, các chức năng ban đầu vẫn đượ
         <p class="text"><b>Thiên Thần</b>: Nếu bạn chết trong đêm hoặc ngày đầu tiên, bạn sẽ giành chiến thắng một mình. Nếu không, bạn là 1 người Dân bình thường. <span class="tag-unk">SOI UNK</span></p>
     </div>
 
-    <!-- Script để phát nhạc sau khi người dùng click vào trang -->
+    <!-- Script để thử phát nhạc nếu autoplay bị chặn -->
     <script>
-        document.addEventListener('click', function() {
-            const audio = document.querySelector('audio');
-            if (audio && audio.paused) {
-                audio.play();
-            }
+        const audio = document.getElementById('background-music');
+
+        window.addEventListener('load', () => {
+            audio.play().catch(error => {
+                console.log('Autoplay bị chặn. Người dùng cần tương tác để phát nhạc.', error);
+                // Thêm thông báo nếu muốn: alert('Nhấn vào trang để phát nhạc!');
+            });
         });
     </script>
 </body>
