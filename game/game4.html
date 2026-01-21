@@ -105,12 +105,18 @@ body {
   flex: 0 0 260px;
 }
 
+.carousel-item {
+  flex: 0 0 260px;
+  background: rgba(0,0,0,0.6);
+}
+
 .carousel-item img {
   width: 100%;
   height: 260px;
-  object-fit: cover;
+  object-fit: contain;  
   display: block;
 }
+
 
 @keyframes scroll {
   from { transform: translateX(0); }
