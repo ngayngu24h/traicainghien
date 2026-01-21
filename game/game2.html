@@ -13,166 +13,28 @@ body {
     padding: 20px;
 }
 
-/* khung chữ */
 .king {
     max-width: 800px;
     margin: 0 auto;
     background: rgba(255,255,255,0.9);
     padding: 20px;
     border-radius: 10px;
-}
-
-/* ===== CAROUSEL ===== */
-.carousel-wrapper {
-    width: 95%;
-    margin: 40px auto;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.6s ease;
-}
-
-.card {
-    min-width: 300px;
-    margin-right: 20px;
-    position: relative;
-}
-
-.card img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-/* text dưới ảnh */
-.card h3 {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    color: white;
-    font-size: 16px;
-    text-shadow: 0 0 10px black;
-}
-
-/* tag HOT */
-.tag {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 4px 8px;
-    font-size: 12px;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.healing { background: red; }
-.comedy { background: orange; }
-
-/* dots */
-.dots {
-    text-align: center;
-    margin-top: 15px;
-}
-.dots span {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #aaa;
-    border-radius: 50%;
-    margin: 0 4px;
-}
-.dots span.active {
-    background: hotpink;
+    line-height: 1.6;
 }
 </style>
 </head>
 
 <body>
-
-<audio autoplay loop>
-    <source src="assets/nhac2.mp3" type="audio/mpeg">
-</audio>
-
+ 
 <div class="king">
     <p>
         Khi bắt đầu, quản trò phát số ngẫu nhiên cho tất cả người chơi.
         Người chơi chỉ biết số của mình, không được tiết lộ cho người khác.<br><br>
+
         Sau khi phát số xong, quản trò random một số bất kỳ.
         Người sở hữu số đó trở thành King của vòng chơi.
     </p>
 </div>
-
-<!-- ===== CAROUSEL ===== -->
-<div class="carousel-wrapper">
-    <div class="carousel-track">
-
-        <div class="card">
-            <img src="assets/1.jpg">
-            <span class="tag healing">HOT</span>
-            <h3>CRE: NGOẠN THỪA</h3>
-        </div>
-
-        <div class="card">
-            <img src="assets/2.jpg">
-            <span class="tag comedy">HOT</span>
-            <h3>CRE: NGOẠN THỪA</h3>
-        </div>
-
-        <div class="card">
-            <img src="assets/3.jpg">
-            <h3>CRE: NGOẠN THỪA</h3>
-        </div>
-
-        <div class="card">
-            <img src="assets/4.jpg">
-            <h3>CRE: NGOẠN THỪA</h3>
-        </div>
-
-    </div>
-
-    <div class="dots"></div>
-</div>
-
-<!-- ===== SCRIPT ===== -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const track = document.querySelector(".carousel-track");
-    const cards = document.querySelectorAll(".card");
-    const dotsBox = document.querySelector(".dots");
-
-    let index = 0;
-    const visibleCards = 3;
-    const cardWidth = cards[0].offsetWidth + 20;
-    const maxIndex = cards.length - visibleCards;
-
-    /* tạo dots */
-    for (let i = 0; i <= maxIndex; i++) {
-        const dot = document.createElement("span");
-        if (i === 0) dot.classList.add("active");
-        dotsBox.appendChild(dot);
-    }
-
-    const dots = dotsBox.querySelectorAll("span");
-
-    function updateCarousel() {
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
-        dots.forEach(d => d.classList.remove("active"));
-        dots[index].classList.add("active");
-    }
-
-    setInterval(() => {
-        index++;
-        if (index > maxIndex) index = 0;
-        updateCarousel();
-    }, 3500);
-
-});
-</script>
 
 </body>
 </html>
